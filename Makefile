@@ -6,11 +6,11 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/01/30 16:38:12 by bchedru          ###   ########.fr        #
+#    Updated: 2024/02/05 19:28:58 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	push_swap
+SRCS =	push_swap push_swap_utils
 
 INC_FILES = -I libft
 
@@ -35,7 +35,7 @@ $(NAME) : $(OBJ)
 
 clean :
 	make -C libft/ clean
-	rm -rf $(OBJ) $(BOBJ)
+	rm -rf $(OBJ)
 
 fclean : clean
 	make -C libft fclean
