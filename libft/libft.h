@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:45:14 by kcouchma          #+#    #+#             */
-/*   Updated: 2024/02/06 16:42:17 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/02/06 19:21:40 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 /* Structures                                                                 */
 /******************************************************************************/
 
-typedef struct		s_list
+typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
