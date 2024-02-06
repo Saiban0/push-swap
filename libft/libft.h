@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcouchma <kcouchma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:45:14 by kcouchma          #+#    #+#             */
-/*   Updated: 2024/01/11 15:06:01 by kcouchma         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:42:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 /* Structures                                                                 */
 /******************************************************************************/
 
-typedef struct s_list
+typedef struct		s_list
 {
-	void			*content;
+	int				content;
 	struct s_list	*next;
 }					t_list;
 
@@ -415,7 +415,7 @@ int		ft_putbase(size_t n, char *base, int fd);
  * ’content’ is initialized with the value of the parameter ’content’. The 
  * variable ’next’ is initialized to NULL.
  */
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(int content);
 
 /**
  * @brief Adds the node ’new’ at the beginning of the list. * 
@@ -452,7 +452,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
  * @param lst The node to free.
  * @param del The address of the function used to delete the content
  */
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstdelone(t_list *lst, void (*del)(int));
 
 /**
  * @brief Deletes and frees the given node and every successor of that node, 
@@ -462,7 +462,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
  * @param del The address of the function used to delete the content of the 
  * node.
  */
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(int));
 
 /**
  * @brief Iterates the list ’lst’ and applies the function ’f’ on the content 
@@ -470,7 +470,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
  * @param lst The address of a pointer to a node.
  * @param f The address of the function used to iterate on the list.
  */
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(int));
 
 /**
  * @brief Iterates the list ’lst’ and applies the function ’f’ on the content 
@@ -483,7 +483,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  * if needed.
  * @return t_list* 
  */
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
 
 /******************************************************************************/
 /* Projects - printf                                                          */

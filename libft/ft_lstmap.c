@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcouchma <kcouchma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 17:06:53 by kcouchma          #+#    #+#             */
-/*   Updated: 2023/11/03 10:41:36 by kcouchma         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:42:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int))
 {
 	t_list	*new_list;
 	t_list	*new_node;
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	temp = lst;
 	while (temp)
 	{
-		new_node = ft_lstnew(NULL);
+		new_node = ft_lstnew(0);
 		if (!new_node)
 		{
 			ft_lstclear(&new_list, del);
