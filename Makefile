@@ -6,11 +6,11 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/02/05 19:28:58 by bchedru          ###   ########.fr        #
+#    Updated: 2024/02/06 18:23:02 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	push_swap push_swap_utils
+SRCS =	push_swap push_swap_utils turksort_utils
 
 INC_FILES = -I libft
 
@@ -27,7 +27,7 @@ NAME = push_swap
 all: $(NAME)
 
 $(NAME) : $(OBJ)
-	make -C libft/ 
+	make -C libft/ bonus
 	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES)
 
 %.o: %.c
