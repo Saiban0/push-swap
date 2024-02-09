@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/02/08 16:10:59 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:04:09 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,25 @@ int	ft_rotate(t_list **stack, char a_or_b)
 int	ft_reverse_rotate(t_list **stack, char a_or_b)
 {
 	t_list	*tmp;
+	t_list	**end;
 	int		size;
 
-	tmp = (*stack)->next;
+	tmp = *stack;
+	end = stack;
 	size = ft_lstsize(*stack);
 	if (size <= 1)
 		return (1);
 	else if (size == 2)
 		return (ft_swap(*stack, a_or_b));
-	ft_lstadd_front(&tmp, *stack);
-	(*stack)->next = NULL;
-	*stack = tmp;
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		while ((*end)->next->next)
+			end = &(*end)->next;
+		ft_lstadd_front(stack, tmp);
+		(*end)->next = NULL;
+	}
 	ft_printf("rr %c\n", a_or_b);
 	return (0);
 }
