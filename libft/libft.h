@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:45:14 by kcouchma          #+#    #+#             */
-/*   Updated: 2024/02/09 15:22:41 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/02/15 18:05:50 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+	struct s_list	*target;
+	int				is_cheapest;
 	int				cost;
+	int				curr_pos;
+	int				above_median;
 }					t_list;
 
 /******************************************************************************/
