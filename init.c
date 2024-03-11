@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/11 19:14:57 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/11 19:27:46 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,25 @@ void	set_price(t_list *a, t_list *b)
 			b->cost + len_a - (b->target->curr_pos);
 		b = b->next;
 	}
+}
+void	stack_init(t_list **a, char **argv, int flag_argc_2)
+{
+	long	nbr;
+	int		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (error_syntax(argv[i]))
+			error_free(a, argv, flag_argc_2);
+		nbr = ft_atol(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			error_free(a, argv, flag_argc_2);
+		if (error_repetition(*a, (int)nbr))
+			error_free(a, argv, flag_argc_2);
+		append_node(a, (int)nbr);
+		++i;
+	}
+	if (flag_argc_2)
+		free_matrix(argv);
 }
