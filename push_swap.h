@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:39:30 by bchedru           #+#    #+#             */
-/*   Updated: 2024/02/20 18:10:26 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/11 19:53:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 
 int		ft_swap(t_list *stack, char a_or_b);
 int		ft_push(t_list **src, t_list **dest, char a_or_b);
@@ -25,6 +26,7 @@ void	init_nodes(t_list *a, t_list *b);
 void	set_current_pos(t_list *stack);
 void	set_price(t_list *a, t_list *b);
 long	ft_atol(char *str);
+void	clear_stack(t_list **stack);
 
 
 #endif

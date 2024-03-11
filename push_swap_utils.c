@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/02/20 18:22:35 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/11 19:53:06 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,19 @@ long	ft_atol(char *str)
 		i++;
 	}
 	return(res * sign);
+}
+
+
+void	clear_stack(t_list **stack)
+{
+	t_list	*current;
+	t_list	*next;
+
+	current = *stack;
+	while(current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 }
