@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/02/09 11:04:09 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/02/20 18:22:35 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,32 @@ int	ft_reverse_rotate(t_list **stack, char a_or_b)
 	}
 	ft_printf("rr %c\n", a_or_b);
 	return (0);
+}
+
+long	ft_atol(char *str)
+{
+	long	res;
+	int		i;
+	int		sign;
+
+	res = 0;
+	i = 0;
+	sign = 1;
+	while (ft_iswhitespace(str[i]))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+		{
+			sign *= -1;
+			break;
+		}
+		i++;
+	}
+	while (!ft_isalpha(str[i]))
+	{
+		res = (res * 10) + str[i] - '0';
+		i++;
+	}
+	return(res * sign);
 }

@@ -6,11 +6,11 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/02/09 11:20:24 by bchedru          ###   ########.fr        #
+#    Updated: 2024/02/20 15:35:35 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	push_swap push_swap_utils tinysort_utils
+SRCS =	push_swap push_swap_utils tinysort_utils main
 
 INC_FILES = -I libft
 
