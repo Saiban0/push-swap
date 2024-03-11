@@ -6,15 +6,15 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/11 14:05:38 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/11 19:04:15 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(t_list *stack)
+void	push_swap(t_list *a, t_list *b)
 {
-	if (ft_lstsize(stack) == 5)
+	if (ft_lstsize(a) == 5)
 	{
 		
 	}
@@ -37,6 +37,6 @@ int	main(int argc, char **argv)
 		else if (ft_lstsize(a) == 3)
 			tiny_sort(&a);
 		else
-			push_swap();
+			push_swap(a, b);
 	}
 }
