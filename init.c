@@ -6,13 +6,13 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/11 19:27:46 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:03:51 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_nodes(t_list *a, t_list *b)
+void init_nodes (t_list *a, t_list *b)
 {
 	set_current_pos(a);
 	set_current_pos(b);
@@ -21,14 +21,14 @@ void init_nodes(t_list *a, t_list *b)
 	set_cheapest(b);
 }
 
-void	set_current_pos(t_list *stack)
+void	set_current_pos (t_list *stack)
 {
 	int	pos;
 	int	median;
 
 	pos = 0;
 	median = ft_lstsize(stack) / 2;
-	while(stack)
+	while (stack)
 	{
 		stack->curr_pos = pos;
 		if (pos <= median)
@@ -47,7 +47,7 @@ void	set_price(t_list *a, t_list *b)
 
 	len_a = ft_lstsize(a);
 	len_b = ft_lstsize(b);
-	while(b)
+	while (b)
 	{
 		b->cost = b->curr_pos;
 		if (!b->above_median)
@@ -59,24 +59,28 @@ void	set_price(t_list *a, t_list *b)
 		b = b->next;
 	}
 }
-void	stack_init(t_list **a, char **argv, int flag_argc_2)
+
+void	stack_init(t_list **a, char **argv, int flag_free_heap)
 {
 	long	nbr;
 	int		i;
+	t_list	*temp;
 
 	i = 0;
+	temp = NULL;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_free_heap);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_argc_2);
+			error_free(a, argv, flag_free_heap);
 		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, flag_argc_2);
-		append_node(a, (int)nbr);
-		++i;
+			error_free(a, argv, flag_free_heap);
+		temp = ft_lstnew((int) nbr);
+		ft_lstadd_back(a, temp);
+		i++;
 	}
-	if (flag_argc_2)
+	if (flag_free_heap)
 		free_matrix(argv);
 }
