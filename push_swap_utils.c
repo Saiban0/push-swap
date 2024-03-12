@@ -98,7 +98,7 @@ long	ft_atol(char *str)
 		if (str[i] == '-')
 		{
 			sign *= -1;
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -107,9 +107,8 @@ long	ft_atol(char *str)
 		res = (res * 10) + str[i] - '0';
 		i++;
 	}
-	return(res * sign);
+	return (res * sign);
 }
-
 
 void	clear_stack(t_list **stack)
 {
@@ -117,7 +116,7 @@ void	clear_stack(t_list **stack)
 	t_list	*next;
 
 	current = *stack;
-	while(current)
+	while (current)
 	{
 		next = current->next;
 		free(current);

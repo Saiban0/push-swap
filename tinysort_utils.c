@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:22:51 by bchedru           #+#    #+#             */
-/*   Updated: 2024/02/15 17:23:40 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:03:11 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	stack_sorted(t_list *stack)
 {
 	if (stack == NULL)
 		return (-1);
-	while(stack ->next)
+	while (stack ->next)
 	{
 		if (stack->content > stack->next->content)
 			return (0);
@@ -30,7 +30,7 @@ int	find_highest(t_list **stack)
 	int	max;
 
 	max = (*stack)->content;
-	while(stack)
+	while (stack)
 	{
 		if ((*stack)->content > max)
 			max = (*stack)->content;
@@ -44,7 +44,7 @@ int	find_lowest(t_list **stack)
 	int	min;
 
 	min = (*stack)->content;
-	while(stack)
+	while (stack)
 	{
 		if ((*stack)->content < min)
 			min = (*stack)->content;

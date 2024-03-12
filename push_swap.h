@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:39:30 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/11 19:53:17 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/12 15:38:27 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	set_current_pos(t_list *stack);
 void	set_price(t_list *a, t_list *b);
 long	ft_atol(char *str);
 void	clear_stack(t_list **stack);
-
+void	stack_init(t_list **a, char **argv, int flag_free_heap);
 
 #endif
