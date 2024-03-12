@@ -6,20 +6,11 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/12 16:03:51 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:00:31 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void init_nodes (t_list *a, t_list *b)
-{
-	set_current_pos(a);
-	set_current_pos(b);
-	set_targets(a, b);
-	set_price(a, b);
-	set_cheapest(b);
-}
 
 void	set_current_pos (t_list *stack)
 {
@@ -83,4 +74,13 @@ void	stack_init(t_list **a, char **argv, int flag_free_heap)
 	}
 	if (flag_free_heap)
 		free_matrix(argv);
+}
+
+void init_nodes (t_list *a, t_list *b)
+{
+	set_current_pos(a);
+	set_current_pos(b);
+	set_targets(a, b);
+	set_price(a, b);
+	set_cheapest(b);
 }
