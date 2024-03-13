@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:01:32 by kcouchma          #+#    #+#             */
-/*   Updated: 2024/02/06 16:38:48 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/13 15:58:22 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	ft_lstclear(t_list **lst, void (*del)(int))
 		ft_lstdelone(*lst, del);
 		*lst = temp;
 	}
+	*lst = NULL;
 }
