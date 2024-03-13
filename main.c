@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/13 15:43:09 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/13 17:25:38 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,41 @@ void	push_swap(t_list **a, t_list **b)
 		ft_push(a, b, 'b');
 	tiny_sort(a);
 	
+}
+
+void	ft_free_stack(t_list **stack)
+{
+	t_list	*temp;
+
+	if (!*stack)
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(stack);
+		*stack = temp;
+	}
+	*stack = NULL;
+}
+
+void	ft_free_tab(char **argv)
+{
+	int	i;
+
+	i = -1;
+	if(!argv || !*argv)
+		return ;
+	while(argv[i])
+		free(argv[i++]);
+}
+
+void	error_free(t_list **a, char **argv, int flag_free_heap)
+{
+	ft_free_stack(a);
+	if (flag_free_heap)
+		free_matrix(argv);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	stack_init(t_list **a, char **argv, int flag_free_heap)
@@ -42,7 +77,7 @@ void	stack_init(t_list **a, char **argv, int flag_free_heap)
 		i++;
 	}
 	if (flag_free_heap)
-		free_matrix(argv);
+		ft_free_tab(argv);
 }
 
 int	main(int argc, char **argv)
