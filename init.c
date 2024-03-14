@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/13 15:43:11 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:08:18 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,34 @@ void	set_current_pos (t_list *stack)
 			stack->above_median = 0;
 		pos++;
 		stack = stack->next;
+	}
+}
+
+static void	set_targets(t_list *a, t_list *b)
+{
+	t_list	*current_a;
+	t_list	*target_node;
+	long	best_match_index;
+
+	while (b)
+	{
+		best_match_index = LONG_MAX;
+		current_a = a;
+		while (current_a)
+		{
+			if (current_a->content > b->content
+				&& current_a->content < best_match_index)
+			{
+				best_match_index = current_a->content;
+				target_node = current_a;
+			}
+			current_a = current_a->next;
+		}
+		if (LONG_MAX == best_match_index)
+			b->target = find_lowest(&a);
+		else
+			b->target = target_node;
+		b = b->next;
 	}
 }
 
