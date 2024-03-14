@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/13 17:25:38 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:20:42 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,23 @@ void	push_swap(t_list **a, t_list **b)
 		ft_push(a, b, 'b');
 	tiny_sort(a);
 	
+}
+
+int	check_syntax(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (!argv || !argv[0])
+		return (1);
+	while(argv[i])
+	{
+		if ((argv[i] != '-' && argv[i] != '+') && !(argv[i] >= '0' && argv[i] <= '9'))
+			return (1);
+		i++;
+	}
+	argv++;
+	return (0);
 }
 
 void	ft_free_stack(t_list **stack)
@@ -50,7 +67,7 @@ void	error_free(t_list **a, char **argv, int flag_free_heap)
 {
 	ft_free_stack(a);
 	if (flag_free_heap)
-		free_matrix(argv);
+		ft_free_tab(argv);
 	write(2, "Error\n", 6);
 	exit(1);
 }
@@ -61,17 +78,17 @@ void	stack_init(t_list **a, char **argv, int flag_free_heap)
 	int		i;
 	t_list	*temp;
 
-	i = 0;
+	i = 1;
 	temp = NULL;
 	while (argv[i])
 	{
-		if (error_syntax(argv[i]))
+		if (check_syntax(argv[i]))
 			error_free(a, argv, flag_free_heap);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag_free_heap);
-		if (error_repetition(*a, (int)nbr))
-			error_free(a, argv, flag_free_heap);
+		// if (error_repetition(*a, (int)nbr))
+		// 	error_free(a, argv, flag_free_heap);
 		temp = ft_lstnew((int) nbr);
 		ft_lstadd_back(a, temp);
 		i++;
