@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/11 19:53:06 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:09:49 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ long	ft_atol(char *str)
 	res = 0;
 	i = 0;
 	sign = 1;
-	while (ft_iswhitespace(str[i]))
+	while (str[i] <= ' ')
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
