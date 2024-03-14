@@ -6,13 +6,13 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/14 17:08:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:58:42 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_current_pos (t_list *stack)
+void	set_current_pos(t_list *stack)
 {
 	int	pos;
 	int	median;
@@ -92,7 +92,7 @@ void	set_cheapest(t_list *stack)
 	}
 }
 
-void init_nodes (t_list *a, t_list *b)
+void	init_nodes(t_list *a, t_list *b)
 {
 	set_current_pos(a);
 	set_current_pos(b);

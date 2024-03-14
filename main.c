@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/14 17:20:42 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/14 18:09:56 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	push_swap(t_list **a, t_list **b)
 {
-	while(ft_lstsize(*a) > 3)
+	while (ft_lstsize(*a) > 3)
 		ft_push(a, b, 'b');
 	tiny_sort(a);
-	
 }
 
 int	check_syntax(char *argv)
@@ -27,9 +26,10 @@ int	check_syntax(char *argv)
 	i = 0;
 	if (!argv || !argv[0])
 		return (1);
-	while(argv[i])
+	while (argv[i])
 	{
-		if ((argv[i] != '-' && argv[i] != '+') && !(argv[i] >= '0' && argv[i] <= '9'))
+		if ((argv[i] != '-' && argv[i] != '+')
+			&& !(argv[i] >= '0' && argv[i] <= '9'))
 			return (1);
 		i++;
 	}
@@ -57,9 +57,9 @@ void	ft_free_tab(char **argv)
 	int	i;
 
 	i = -1;
-	if(!argv || !*argv)
+	if (!argv || !*argv)
 		return ;
-	while(argv[i])
+	while (argv[i])
 		free(argv[i++]);
 }
 
