@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/14 18:09:56 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/18 16:20:45 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	stack_init(t_list **a, char **argv, int flag_free_heap)
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag_free_heap);
-		// if (error_repetition(*a, (int)nbr))
+		// if (error_repetition(*a, (int)nbr))line
 		// 	error_free(a, argv, flag_free_heap);
 		temp = ft_lstnew((int) nbr);
 		ft_lstadd_back(a, temp);
@@ -116,5 +116,6 @@ int	main(int argc, char **argv)
 		else
 			push_swap(&a, &b);
 	}
+	display_stack(&a);
 	clear_stack(&a);
 }
