@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/14 17:58:42 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/19 14:51:24 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	set_targets(t_list *a, t_list *b)
 			current_a = current_a->next;
 		}
 		if (LONG_MAX == best_match_index)
-			b->target = find_lowest(&a);
+			b->target = find_lowest(a);
 		else
 			b->target = target_node;
 		b = b->next;
@@ -83,7 +83,7 @@ void	set_cheapest(t_list *stack)
 {
 	int	min;
 
-	min = stack->cost;
+	min = INT_MAX;
 	while (stack)
 	{
 		if (stack->cost < min)
