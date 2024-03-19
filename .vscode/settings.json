@@ -5,6 +5,7 @@
 		"push_swap.h": "c"
 	},
 	"files.exclude": {
-		"*.o": true
+		"*.o": true,
+		"*/*.o": true
 	}
 }
