@@ -6,24 +6,11 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/18 16:51:16 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/19 14:29:31 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	push(t_list **src, t_list **dest, char a_or_b)
-{
-	t_list	*tmp;
-
-	tmp = (*src)->next;
-	if (ft_lstsize(*src) == 0)
-		return (1);
-	ft_lstadd_front(dest, *src);
-	*src = tmp;
-	ft_printf("p %c\n", a_or_b);
-	return (0);
-}
 
 long	ft_atol(char *str)
 {
