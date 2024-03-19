@@ -4,4 +4,4 @@ test.txt
 *.txt
 push_swap
 libft.a
-.vscode/
+.vscode
