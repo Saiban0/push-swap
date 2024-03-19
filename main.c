@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/18 16:20:45 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/19 14:49:06 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push_swap(t_list **a, t_list **b)
 {
 	while (ft_lstsize(*a) > 3)
-		ft_push(a, b, 'b');
+		pa(a, b, 0);
 	tiny_sort(a);
 }
 
@@ -107,10 +107,11 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (1);
 	stack_init(&a, argv, 0);
+	init_nodes(a, b);
 	if (!stack_sorted(a))
 	{
 		if (ft_lstsize(a) == 2)
-			ft_swap(a, 'a');
+			sa(&a, 0);
 		else if (ft_lstsize(a) == 3)
 			tiny_sort(&a);
 		else
