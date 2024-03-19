@@ -3,5 +3,8 @@
 		"libft.h": "c",
 		"limits.h": "c",
 		"push_swap.h": "c"
+	},
+	"files.exclude": {
+		"*.o": true
 	}
 }
