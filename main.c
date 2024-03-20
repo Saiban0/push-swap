@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/19 14:49:06 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/20 16:19:54 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,25 @@ void	error_free(t_list **a, char **argv, int flag_free_heap)
 	exit(1);
 }
 
+static void	append_node(t_list **stack, t_list *new)
+{
+	t_list	*last_node;
+
+	if (NULL == stack)
+		return ;
+	if (NULL == *stack)
+	{
+		*stack = new;
+		new->previous = NULL;
+	}
+	else
+	{
+		last_node = find_last_node(*stack);
+		last_node->next = new;
+		new->previous = last_node;
+	}
+}
+
 void	stack_init(t_list **a, char **argv, int flag_free_heap)
 {
 	long	nbr;
@@ -87,10 +106,8 @@ void	stack_init(t_list **a, char **argv, int flag_free_heap)
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag_free_heap);
-		// if (error_repetition(*a, (int)nbr))line
-		// 	error_free(a, argv, flag_free_heap);
 		temp = ft_lstnew((int) nbr);
-		ft_lstadd_back(a, temp);
+		append_node(a, temp);
 		i++;
 	}
 	if (flag_free_heap)
