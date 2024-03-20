@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/20 16:54:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/20 17:07:34 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,26 @@
 
 void	push_swap(t_list **a, t_list **b)
 {
-	while (ft_lstsize(*a) > 3)
-		pa(a, b, 0);
+	int		len_a;
+	t_list	*lowest;
+
+	len_a = ft_lstsize(*a);
+	while (len_a-- > 3)
+		pb(b, a, 0);
 	tiny_sort(a);
+	while (*b)
+	{
+		init_nodes(*a, *b);
+		//move_nodes(a, b);
+	}
+	set_current_pos(*a);
+	lowest = find_lowest(*a);
+	if (lowest->above_median)
+		while (*a != lowest)
+			ra(a, 0);
+	else
+		while (*a != lowest)
+			rra(a, 0);
 }
 
 int	main(int argc, char **argv)
