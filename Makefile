@@ -6,11 +6,11 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/03/18 17:09:56 by bchedru          ###   ########.fr        #
+#    Updated: 2024/03/20 16:34:33 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	main init push_swap_utils tinysort_utils push_command swap_command rotate_command reverse_rotate_command
+SRCS =	main stack_init push_swap_utils tinysort_utils push_command swap_command rotate_command reverse_rotate_command
 
 INC_FILES = -I libft
 
