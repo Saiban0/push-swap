@@ -4,5 +4,5 @@ test.txt
 *.txt
 push_swap
 libft.a
-.vscode
+.vscode/
 push_swap_visualizer/
