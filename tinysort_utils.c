@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:22:51 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/19 15:27:44 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/21 15:41:39 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,30 @@ t_list	*find_lowest(t_list *stack)
 	return (min);
 }
 
-void	tiny_sort(t_list **stack)
-{
-	t_list	*highest;
-
-	highest = find_highest(*stack);
-	if (*stack == highest)
-		ra(stack, 0);
-	else if ((*stack)->next == highest)
-		rra(stack, 0);
-	if ((*stack)->content > (*stack)->next->content)
-		sa(stack, 0);
-}
-
 t_list	*find_last_node(t_list *stack)
 {
 	t_list	*last;
 
 	last = stack;
-	while(stack)
+	while (stack)
 	{
 		last = stack;
 		stack = stack->next;
 	}
 	return (last);
+}
+
+
+t_list	*find_cheapest(t_list *stack)
+{
+	t_list	*min;
+
+	min = stack;
+	while (stack)
+	{
+		if (stack->cost < min->cost)
+			min = stack;
+		stack = stack->next;
+	}
+	return (min);
 }

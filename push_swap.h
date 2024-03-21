@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:39:30 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/19 14:26:19 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/21 15:41:53 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ void	set_current_pos(t_list *stack);
 void	set_price(t_list *a, t_list *b);
 t_list	*find_highest(t_list *stack);
 t_list	*find_lowest(t_list *stack);
+t_list	*find_cheapest(t_list *stack);
+t_list	*find_last_node(t_list *stack);
 long	ft_atol(char *str);
 void	clear_stack(t_list **stack);
 void	stack_init(t_list **a, char **argv, int flag_free_heap);
 void	display_stack(t_list **stack);
-t_list	*find_last_node(t_list *stack);
+void	push_swap(t_list **a, t_list **b);
 
 #endif
