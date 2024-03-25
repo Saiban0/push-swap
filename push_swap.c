@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:44:41 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/25 17:56:02 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 18:19:50 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	rrr_to_cheapest(t_list **a, t_list **b, t_list *cheapest)
 	set_current_pos(*b);
 }
 
-void	finish_rotation(t_list **stack, t_list *top, char name)
+static void	finish_rotation(t_list **stack, t_list *top, char name)
 {
 	while (*stack != top)
 	{
