@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:50:18 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/19 14:06:47 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:49:58 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	reverse_rotate(t_list **stack)
 {
 	t_list	*last;
-	int				len;
+	int		len;
 
 	len = ft_lstsize(*stack);
 	if (NULL == *stack || NULL == stack || 1 == len)

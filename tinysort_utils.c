@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:22:51 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/21 15:41:39 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:14:21 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,13 @@ t_list	*find_last_node(t_list *stack)
 
 t_list	*find_cheapest(t_list *stack)
 {
-	t_list	*min;
-
-	min = stack;
+	if (NULL == stack)
+		return (NULL);
 	while (stack)
 	{
-		if (stack->cost < min->cost)
-			min = stack;
+		if (stack->is_cheapest)
+			return (stack);
 		stack = stack->next;
 	}
-	return (min);
+	return (NULL);
 }

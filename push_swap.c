@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:44:41 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/21 16:17:17 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 17:56:02 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,9 @@ static void	process_stacks(t_list **a, t_list **b)
 	t_list	*cheapest;
 
 	cheapest = find_cheapest(*b);
-	if (cheapest->above_median
-		&& cheapest->target->above_median)
+	if (cheapest->above_median && cheapest->target->above_median)
 		rr_to_cheapest(a, b, cheapest);
-	else if (!(cheapest->above_median)
-		&& !(cheapest->target->above_median))
+	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
 		rrr_to_cheapest(a, b, cheapest);
 	finish_rotation(b, cheapest, 'b');
 	finish_rotation(a, cheapest, 'a');

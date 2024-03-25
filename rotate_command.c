@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:48:48 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/18 17:11:01 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:58:35 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	rotate(t_list **stack)
 {
 	t_list	*last_node;
-	int				len;
+	int		len;
 
 	len = ft_lstsize(*stack);
 	if (NULL == stack || NULL == *stack || 1 == len)

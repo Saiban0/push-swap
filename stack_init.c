@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/20 16:34:23 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:51:01 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,25 @@ void	set_price(t_list *a, t_list *b)
 	}
 }
 
-void	set_cheapest(t_list *stack)
+void	set_cheapest(t_list *b)
 {
-	int	min;
+	long	best_match_value;
+	t_list	*best_match_node;
 
-	min = INT_MAX;
-	while (stack)
+	if (NULL == b)
+		return ;
+	best_match_value = LONG_MAX;
+	while (b)
 	{
-		if (stack->cost < min)
-			min = stack->cost;
-		stack = stack->next;
+		if (b->cost < best_match_value)
+		{
+			best_match_value = b->cost;
+			best_match_node = b;
+		}
+		b = b->next;
 	}
+	best_match_node->is_cheapest = 1;
 }
-
 void	init_nodes(t_list *a, t_list *b)
 {
 	set_current_pos(a);
