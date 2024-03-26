@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 14:22:00 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/19 14:29:31 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:35:29 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	clear_stack(t_list **stack)
 
 void	display_stack(t_list **stack)
 {
-	while(*stack)
+	while (*stack)
 	{
 		ft_printf("%d", (*stack)->content);
 		*stack = (*stack)->next;

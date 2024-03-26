@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:22:51 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/25 16:14:21 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:37:45 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ t_list	*find_last_node(t_list *stack)
 	}
 	return (last);
 }
-
 
 t_list	*find_cheapest(t_list *stack)
 {

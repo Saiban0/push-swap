@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/25 16:51:01 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:38:08 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	set_cheapest(t_list *b)
 	}
 	best_match_node->is_cheapest = 1;
 }
+
 void	init_nodes(t_list *a, t_list *b)
 {
 	set_current_pos(a);

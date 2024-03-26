@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 16:48:11 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/18 17:10:33 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/26 17:36:17 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	swap(t_list **head)
 	(*head)->next = (*head)->previous;
 	(*head)->previous = NULL;
 }
+
 void	sa(t_list	**a, int checker)
 {
 	swap(a);
