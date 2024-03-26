@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:44:41 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/25 18:19:50 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/26 16:46:55 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static void	process_stacks(t_list **a, t_list **b)
 	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
 		rrr_to_cheapest(a, b, cheapest);
 	finish_rotation(b, cheapest, 'b');
-	finish_rotation(a, cheapest, 'a');
+	set_cheapest(*a);
+	finish_rotation(a, find_cheapest(*a), 'a');
 	pa(a, b, 0);
 }
 
