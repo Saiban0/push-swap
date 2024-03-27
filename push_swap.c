@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:44:41 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/26 16:46:55 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/03/27 16:59:16 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ static void	process_stacks(t_list **a, t_list **b)
 	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
 		rrr_to_cheapest(a, b, cheapest);
 	finish_rotation(b, cheapest, 'b');
+	set_current_pos(*a);
 	set_cheapest(*a);
-	finish_rotation(a, find_cheapest(*a), 'a');
+	cheapest = find_cheapest(*a);
+	finish_rotation(a, cheapest, 'a');
 	pa(a, b, 0);
 }
 
@@ -71,7 +73,11 @@ void	push_swap(t_list **a, t_list **b)
 
 	len_a = ft_lstsize(*a);
 	while (len_a-- > 3)
+	{
+		if (ft_lstsize(*b) == 3)
+			tiny_sort(b);
 		pb(b, a, 0);
+	}
 	tiny_sort(a);
 	while (*b)
 	{
@@ -79,7 +85,7 @@ void	push_swap(t_list **a, t_list **b)
 		process_stacks(a, b);
 	}
 	set_current_pos(*a);
-	lowest = find_cheapest(*a);
+	lowest = find_lowest(*a);
 	if (lowest->above_median)
 		while (*a != lowest)
 			ra(a, 0);
