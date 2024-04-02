@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:39:30 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/26 16:45:47 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/02 16:28:30 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ t_list	*find_highest(t_list *stack);
 t_list	*find_lowest(t_list *stack);
 t_list	*find_cheapest(t_list *stack);
 t_list	*find_last_node(t_list *stack);
+void	finish_rotation(t_list **stack, t_list *top, char name);
+void	handle_five(t_list **a, t_list **b);
 long	ft_atol(char *str);
 void	clear_stack(t_list **stack);
 void	stack_init(t_list **a, char **argv, int flag_free_heap);
