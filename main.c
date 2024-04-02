@@ -6,11 +6,21 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/21 15:40:39 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/02 16:28:40 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	handle_five(t_list **a, t_list **b)
+{
+	while (ft_lstsize(*a) > 3)
+	{
+		init_nodes(*a, *b);
+		finish_rotation(a, find_lowest(*a), 'a');
+		pb(b, a, 0);
+	}
+}
 
 void	tiny_sort(t_list **stack)
 {
