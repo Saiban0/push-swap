@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 12:44:41 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/27 16:59:16 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/02 18:55:33 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	rrr_to_cheapest(t_list **a, t_list **b, t_list *cheapest)
 	set_current_pos(*b);
 }
 
-static void	finish_rotation(t_list **stack, t_list *top, char name)
+void	finish_rotation(t_list **stack, t_list *top, char name)
 {
 	while (*stack != top)
 	{
@@ -72,10 +72,11 @@ void	push_swap(t_list **a, t_list **b)
 	t_list	*lowest;
 
 	len_a = ft_lstsize(*a);
-	while (len_a-- > 3)
+	// handle_five(a, b);
+	while (ft_lstsize(*a) > 3)
 	{
-		if (ft_lstsize(*b) == 3)
-			tiny_sort(b);
+		init_nodes(*a, *b);
+		finish_rotation(a, find_lowest(*a), 'a');
 		pb(b, a, 0);
 	}
 	tiny_sort(a);
