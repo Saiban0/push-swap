@@ -5,44 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 16:48:48 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/25 15:58:35 by bchedru          ###   ########.fr       */
+/*   Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#             */
+/*   Updated: 2024/04/03 07:43:07 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_list **stack)
+static void	rotate(t_stack_node **stack)
 {
-	t_list	*last_node;
-	int		len;
+	t_stack_node	*last_node;
+	int				len;
 
-	len = ft_lstsize(*stack);
+	len = stack_len(*stack);
 	if (NULL == stack || NULL == *stack || 1 == len)
 		return ;
 	last_node = find_last_node(*stack);
 	last_node->next = *stack;
 	*stack = (*stack)->next;
-	(*stack)->previous = NULL;
-	last_node->next->previous = last_node;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}
+}	
 
-void	ra(t_list **a, int checker)
+void	ra(t_stack_node **a, bool checker)
 {
 	rotate(a);
 	if (!checker)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_list **b, int checker)
+void	rb(t_stack_node **b, bool checker)
 {
 	rotate(b);
 	if (!checker)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_list **a, t_list **b, int checker)
+void	rr(t_stack_node **a, t_stack_node **b, bool checker)
 {
 	rotate(a);
 	rotate(b);

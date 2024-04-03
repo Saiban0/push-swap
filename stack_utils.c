@@ -5,104 +5,92 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 16:53:39 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/26 17:36:56 by bchedru          ###   ########.fr       */
+/*   Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#             */
+/*   Updated: 2024/04/03 07:42:19 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
-int	check_syntax(char *argv)
+t_stack_node	*find_last_node(t_stack_node *head)
 {
-	int	i;
-
-	i = 0;
-	if (!argv || !argv[0])
-		return (1);
-	while (argv[i])
-	{
-		if ((argv[i] != '-' && argv[i] != '+')
-			&& !(argv[i] >= '0' && argv[i] <= '9'))
-			return (1);
-		i++;
-	}
-	argv++;
-	return (0);
+	if (NULL == head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
 }
 
-void	ft_free_stack(t_list **stack)
+void	append_node(t_stack_node **stack, int nbr)
 {
-	t_list	*temp;
-
-	if (!*stack)
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		free(stack);
-		*stack = temp;
-	}
-	*stack = NULL;
-}
-
-void	ft_free_tab(char **argv)
-{
-	int	i;
-
-	i = -1;
-	if (!argv || !*argv)
-		return ;
-	while (argv[i])
-		free(argv[i++]);
-}
-
-void	error_free(t_list **a, char **argv, int flag_free_heap)
-{
-	ft_free_stack(a);
-	if (flag_free_heap)
-		ft_free_tab(argv);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-static void	append_node(t_list **stack, t_list *new)
-{
-	t_list	*last_node;
+	t_stack_node	*node;
+	t_stack_node	*last_node;
 
 	if (NULL == stack)
 		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (NULL == node)
+		return ;
+	node->next = NULL;
+	node->value = nbr;
 	if (NULL == *stack)
 	{
-		*stack = new;
-		new->previous = NULL;
+		*stack = node;
+		node->prev = NULL;
 	}
 	else
 	{
 		last_node = find_last_node(*stack);
-		last_node->next = new;
-		new->previous = last_node;
+		last_node->next = node;
+		node->prev = last_node;
 	}
 }
 
-void	stack_init(t_list **a, char **argv, int flag_free_heap)
+t_stack_node	*find_smallest(t_stack_node *stack)
 {
-	long	nbr;
-	int		i;
-	t_list	*temp;
+	long			smallest;
+	t_stack_node	*smallest_node;
 
-	i = 1;
-	temp = NULL;
-	while (argv[i])
+	if (NULL == stack)
+		return (NULL);
+	smallest = LONG_MAX;
+	while (stack)
 	{
-		if (check_syntax(argv[i]))
-			error_free(a, argv, flag_free_heap);
-		nbr = ft_atol(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_free_heap);
-		temp = ft_lstnew((int) nbr);
-		append_node(a, temp);
-		i++;
+		if (stack->value < smallest)
+		{
+			smallest = stack->value;
+			smallest_node = stack;
+		}
+		stack = stack->next;
 	}
-	if (flag_free_heap)
-		ft_free_tab(argv);
+	return (smallest_node);
+}
+
+t_stack_node	*return_cheapest(t_stack_node *stack)
+{
+	if (NULL == stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+int	stack_len(t_stack_node *stack)
+{
+	int	count;
+
+	if (NULL == stack)
+		return (0);
+	count = 0;
+	while (stack)
+	{
+		++count;
+		stack = stack->next;
+	}
+	return (count);
 }
