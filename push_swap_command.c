@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/08 17:34:00 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/08 18:12:29 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 	// }
 		push_average(*a, *b);
 	tiny_sort(a);
+	printf("%d\n", stack_len(*a));
 	while (*b)
 	{
 		init_nodes(*a, *b);
