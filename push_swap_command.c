@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/03 07:39:22 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/08 17:34:00 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ static void	reverse_rotate_both(t_stack_node **a, t_stack_node **b,
 	set_current_position(*b);
 }
 
-void	finish_rotation(t_stack_node **stack,
-							t_stack_node *top_node,
+void	finish_rotation(t_stack_node **stack, t_stack_node *top_node,
 							char stack_name)
 {
 	while (*stack != top_node)
@@ -49,7 +48,7 @@ void	finish_rotation(t_stack_node **stack,
 				rb(stack, false);
 			else
 				rrb(stack, false);
-		}	
+		}
 	}
 }
 
@@ -78,10 +77,11 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 	if (len_a == 5)
 		handle_five(a, b);
 	else
-	{
-		while (len_a-- > 3)
-			pb(b, a, false);
-	}
+	// {
+		// while(len_a-- > 3)
+			// pb(b, a, false);
+	// }
+		push_average(*a, *b);
 	tiny_sort(a);
 	while (*b)
 	{
