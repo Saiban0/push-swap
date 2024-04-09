@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/09 16:40:22 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/09 17:56:28 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,9 @@ NAME = push_swap
 
 all: $(NAME)
 
+bonus :
+	cd bonus/ && make
+
 $(NAME) : $(OBJ)
 	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES)
 
@@ -29,10 +32,12 @@ $(NAME) : $(OBJ)
 	$(CC) -c -o $@ $< $(CCFLAGS)
 
 clean :
+	cd bonus/ && make clean
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf $(NAME) bonus
+	cd bonus/ && make fclean
+	rm -rf $(NAME)
 
 re : fclean
 	make
