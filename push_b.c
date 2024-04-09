@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:08:16 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/08 18:10:18 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:25:42 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,21 @@ static int	check_stack_underaverage(t_stack_node *stack, int average)
 	return (0);
 }
 
-void	push_average(t_stack_node *a, t_stack_node *b)
+void	push_average(t_stack_node **a, t_stack_node **b)
 {
 	int	average;
 	int	len_a;
 
-	average = stack_average(a);
+	average = stack_average(*a);
 	len_a = 0;
-	while (check_stack_underaverage(a, average))
+	while (check_stack_underaverage(*a, average))
 	{
-		if(a->value > average)
-			pb(&b, &a ,false);
+		if((*a)->value > average)
+			pb(b, a ,false);
 		else
-			ra(&a, false);
+			ra(a, false);
 	}
-	len_a = stack_len(a);
+	len_a = stack_len(*a);
 	while(len_a-- > 3)
-		pb(&b, &a , false);
-	printf("%d\n", stack_len(a));
-	set_current_position(a);
-	set_current_position(b);
+		pb(b, a , false);
 }

@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/04/08 18:04:39 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:25:50 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdbool.h>
 # include <unistd.h>
 // # include <stddef.h>
-#include <stdio.h>
 
 typedef struct s_stack_node
 {
@@ -63,7 +62,7 @@ void			finish_rotation(t_stack_node **s, t_stack_node *n, char c);
 void			tiny_sort(t_stack_node **a);
 void			handle_five(t_stack_node **a, t_stack_node **b);
 void			push_swap(t_stack_node **a, t_stack_node **b);
-void			push_average(t_stack_node *a, t_stack_node *b);
+void			push_average(t_stack_node **a, t_stack_node **b);
 
 //*** Commands ***
 void			sa(t_stack_node **a, bool checker);
