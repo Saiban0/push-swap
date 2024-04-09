@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/09 16:09:54 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/09 16:40:22 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC = $(addsuffix .c,$(SRCS))
 OBJ = $(addsuffix .o,$(SRCS))
 
 CC = cc
-CCFLAGS = -Wall -Wextra -Werror -O0
+CCFLAGS = -Wall -Wextra -Werror -O0 -g
 
 NAME = push_swap
 
