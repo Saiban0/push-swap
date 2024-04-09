@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/04/09 15:25:50 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/09 15:56:04 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <limits.h>
 # include <stdbool.h>
 # include <unistd.h>
-// # include <stddef.h>
 
 typedef struct s_stack_node
 {
