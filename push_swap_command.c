@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:58:10 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/09 15:24:01 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/09 16:02:30 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	push_swap(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node	*smallest;
 	int				len_a;
-	// int				average;
 
 	len_a = stack_len(*a);
 	if (len_a == 5)
