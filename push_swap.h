@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 18:42:44 by utente            #+#    #+#             */
-/*   Updated: 2024/04/09 15:56:04 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/09 17:45:46 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-}				t_stack_node;	
+}				t_stack_node;
 
 //*** Handle input ./push_swap "1 -42 1337" ***
 char			**ft_split(char *str, char separator);
