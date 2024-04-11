@@ -6,11 +6,11 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 16:58:40 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/09 17:56:38 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/11 15:48:09 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	checker
+SRCS =	checker get_next_line get_next_line_utils
 
 SRC = $(addsuffix .c,$(SRCS))
 OBJ = $(addsuffix .o,$(SRCS))
