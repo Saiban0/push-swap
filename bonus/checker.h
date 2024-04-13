@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcouchma <kcouchma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/16 13:59:25 by kcouchma          #+#    #+#             */
-/*   Updated: 2023/10/18 14:44:16 by kcouchma         ###   ########.fr       */
+/*   Created: 2024/04/09 16:58:35 by bchedru           #+#    #+#             */
+/*   Updated: 2024/04/11 15:48:26 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-size_t	ft_strlen(const char *c)
-{
-	int	i;
+# include "../push_swap.h"
+# include "get_next_line.h"
 
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
-}
+#endif

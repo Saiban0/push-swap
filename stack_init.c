@@ -5,98 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 17:23:23 by bchedru           #+#    #+#             */
-/*   Updated: 2024/03/20 16:34:23 by bchedru          ###   ########.fr       */
+/*   Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#             */
+/*   Updated: 2024/04/09 16:02:59 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_current_pos(t_list *stack)
+static long	ft_atol(const char *str)
 {
-	int	pos;
-	int	median;
+	long	num;
+	int		isneg;
+	int		i;
 
-	pos = 0;
-	median = ft_lstsize(stack) / 2;
-	while (stack)
+	num = 0;
+	isneg = 1;
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\t'
+			|| str[i] == '\n' || str[i] == '\r'
+			|| str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
 	{
-		stack->curr_pos = pos;
-		if (pos <= median)
-			stack->above_median = 1;
-		else
-			stack->above_median = 0;
-		pos++;
-		stack = stack->next;
+		isneg *= -1;
+		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = (num * 10) + (str[i] - '0');
+		i++;
+	}
+	return (num * isneg);
 }
 
-static void	set_targets(t_list *a, t_list *b)
+void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 {
-	t_list	*current_a;
-	t_list	*target_node;
-	long	best_match_index;
+	long	nbr;
+	int		i;
 
-	while (b)
+	i = 0;
+	while (argv[i])
 	{
-		best_match_index = LONG_MAX;
-		current_a = a;
-		while (current_a)
-		{
-			if (current_a->content > b->content
-				&& current_a->content < best_match_index)
-			{
-				best_match_index = current_a->content;
-				target_node = current_a;
-			}
-			current_a = current_a->next;
-		}
-		if (LONG_MAX == best_match_index)
-			b->target = find_lowest(a);
-		else
-			b->target = target_node;
-		b = b->next;
+		if (error_syntax(argv[i]))
+			error_free(a, argv, flag_argc_2);
+		nbr = ft_atol(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			error_free(a, argv, flag_argc_2);
+		if (error_repetition(*a, (int)nbr))
+			error_free(a, argv, flag_argc_2);
+		append_node(a, (int)nbr);
+		++i;
 	}
-}
-
-void	set_price(t_list *a, t_list *b)
-{
-	int	len_a;
-	int	len_b;
-
-	len_a = ft_lstsize(a);
-	len_b = ft_lstsize(b);
-	while (b)
-	{
-		b->cost = b->curr_pos;
-		if (!b->above_median)
-			b->cost = len_b - (b->curr_pos);
-		if (b->target->above_median)
-			b->cost += b->target->curr_pos;
-		else
-			b->cost += len_a - (b->target->curr_pos);
-		b = b->next;
-	}
-}
-
-void	set_cheapest(t_list *stack)
-{
-	int	min;
-
-	min = INT_MAX;
-	while (stack)
-	{
-		if (stack->cost < min)
-			min = stack->cost;
-		stack = stack->next;
-	}
-}
-
-void	init_nodes(t_list *a, t_list *b)
-{
-	set_current_pos(a);
-	set_current_pos(b);
-	set_targets(a, b);
-	set_price(a, b);
-	set_cheapest(b);
+	if (flag_argc_2)
+		free_matrix(argv);
 }

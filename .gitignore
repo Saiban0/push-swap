@@ -1,9 +1,10 @@
 *.o
 a.out
-test.txt
 *.txt
 push_swap
 libft.a
 .vscode/
 push_swap_visualizer/
 temp
+checker_linux
+checker
