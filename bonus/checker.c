@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:59:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/11 18:41:23 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/15 17:55:01 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,12 @@ int	main(int argc, char **argv)
 	stack_init(&a, argv, argc == 2);
 	len = stack_len(a);
 	cmd = get_next_line(STDIN_FILENO);
+	parse_cmd(cmd, a, b);
+	if (stack_sorted(a))
+	{
+		write(STDOUT_FILENO, "OK\n", 3);
+		return (0);
+	}
+	write(STDOUT_FILENO, "KO\n", 3);
+	return (1);
 }
