@@ -6,12 +6,11 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/03 07:42:19 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/15 17:31:37 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 t_stack_node	*find_last_node(t_stack_node *head)
 {
