@@ -2,6 +2,7 @@
 a.out
 *.txt
 push_swap
+push_swap.a
 libft.a
 .vscode/
 push_swap_visualizer/
