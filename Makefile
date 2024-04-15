@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/09 17:56:28 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/15 16:13:57 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,29 +17,35 @@ OBJ = $(addsuffix .o,$(SRCS))
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror -O0 -g
-
 NAME = push_swap
+
+ARCHIVE = push_swap.a
+MAKE_LIB = ar -rcs
 
 all: $(NAME)
 
 bonus :
-	cd bonus/ && make
+	make -C bonus
+
+archive : $(ARCHIVE)
+
+$(ARCHIVE) : $(OBJ)
+	$(MAKE_LIB) $(ARCHIVE) $^
 
 $(NAME) : $(OBJ)
-	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES)
+	$(CC) -o $@ $(OBJ) $(INC_ARCHIVES) $(CCFLAGS)
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CCFLAGS)
 
 clean :
-	cd bonus/ && make clean
+	make -C bonus clean
 	rm -rf $(OBJ)
 
 fclean : clean
-	cd bonus/ && make fclean
-	rm -rf $(NAME)
+	make -C bonus fclean
+	rm -rf $(NAME) $(ARCHIVE)
 
-re : fclean
-	make
+re : fclean $(NAME)
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus
