@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 16:58:40 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/15 16:39:42 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/15 17:23:49 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJ) $(PUSH_SWAP_ARCHIVE)
 	$(CC) -o $@ $^ $(OBJ) $(INC_ARCHIVES)
-	cp $(NAME) ../
+	mv $(NAME) ../
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(CCFLAGS)
