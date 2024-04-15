@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 12:10:26 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/15 16:13:57 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/15 16:44:15 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ MAKE_LIB = ar -rcs
 
 all: $(NAME)
 
-bonus :
-	make -C bonus
-
 archive : $(ARCHIVE)
+
+bonus : archive
+	make -C bonus
 
 $(ARCHIVE) : $(OBJ)
 	$(MAKE_LIB) $(ARCHIVE) $^
