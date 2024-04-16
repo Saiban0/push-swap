@@ -6,30 +6,32 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 16:58:40 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/15 17:23:49 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/16 17:31:55 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	checker get_next_line get_next_line_utils
+NAME = checker
 
-SRC = $(addsuffix .c,$(SRCS))
-# OBJ = $(addsuffix .o,$(SRCS))
+FILES =	checker get_next_line get_next_line_utils
+SRC = $(addsuffix .c,$(FILES))
+OBJ = $(addsuffix .o,$(FILES))
 
 CC = cc
 CCFLAGS = -Wall -Wextra -Werror -O0 -g
 
 PUSH_SWAP_ARCHIVE = ../push_swap.a
 
-NAME = checker
-
 all: $(NAME)
 
 $(NAME) : $(OBJ) $(PUSH_SWAP_ARCHIVE)
-	$(CC) -o $@ $^ $(OBJ) $(INC_ARCHIVES)
+	$(CC) -o $@ $^ $(INC_ARCHIVES)
 	mv $(NAME) ../
 
+$(PUSH_SWAP_ARCHIVE) :
+	make -C ../
+
 %.o: %.c
-	$(CC) -c -o $@ $< $(CCFLAGS)
+	$(CC) $(CCFLAGS) -c  $< -o $@
 
 clean :
 	rm -rf $(OBJ)
@@ -39,9 +41,5 @@ fclean : clean
 
 re : fclean
 	make
-
-
-$(PUSH_SWAP_ARCHIVE) :
-	make -C ../
 
 .PHONY : all clean fclean re
