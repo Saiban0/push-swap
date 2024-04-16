@@ -6,7 +6,7 @@
 #    By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 16:58:40 by bchedru           #+#    #+#              #
-#    Updated: 2024/04/16 17:31:55 by bchedru          ###   ########.fr        #
+#    Updated: 2024/04/16 17:42:21 by bchedru          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJ) $(PUSH_SWAP_ARCHIVE)
 	$(CC) -o $@ $^ $(INC_ARCHIVES)
-	mv $(NAME) ../
+	cp $(NAME) ../
 
 $(PUSH_SWAP_ARCHIVE) :
 	make -C ../
@@ -37,7 +37,7 @@ clean :
 	rm -rf $(OBJ)
 
 fclean : clean
-	rm -rf ../$(NAME)
+	rm -rf $(NAME) ../$(NAME)
 
 re : fclean
 	make
