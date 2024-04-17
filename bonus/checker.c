@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 16:59:31 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/16 18:56:27 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/17 17:43:08 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,49 +36,42 @@ static void	error(t_stack_node *a, t_stack_node *b)
 	exit(1);
 }
 
-static void	parse_cmd(char *cmd, t_stack_node *a, t_stack_node *b)
+static void	parse_cmd(char *cmd, t_stack_node **a, t_stack_node **b)
 {
 	if (ft_strcmp(cmd, "pa\n"))
-		pa(&a, &b, true);
+		pa(a, b, true);
 	else if (ft_strcmp(cmd, "pb\n"))
-		pb(&b, &a, true);
+		pb(b, a, true);
 	else if (ft_strcmp(cmd, "sa\n"))
-		sa(&a, true);
+		sa(a, true);
 	else if (ft_strcmp(cmd, "sb\n"))
-		sb(&b, true);
+		sb(b, true);
 	else if (ft_strcmp(cmd, "ra\n"))
-		ra(&b, true);
+		ra(b, true);
 	else if (ft_strcmp(cmd, "rb\n"))
-		rb(&b, true);
+		rb(b, true);
 	else if (ft_strcmp(cmd, "rr\n"))
-		rr(&a, &b, true);
+		rr(a, b, true);
 	else if (ft_strcmp(cmd, "rra\n"))
-		rra(&a, true);
+		rra(a, true);
 	else if (ft_strcmp(cmd, "rrb\n"))
-		rrb(&b, true);
+		rrb(b, true);
 	else if (ft_strcmp(cmd, "rrr\n"))
-		rrr(&a, &b, true);
+		rrr(a, b, true);
 	else
-		error(a, b);
+		error(*a, *b);
 }
 
-static void	gnl_loop(int fd, t_stack_node *a, t_stack_node *b)
+static void	gnl_loop(int fd, t_stack_node **a, t_stack_node **b)
 {
 	char	*line;
 
 	line = get_next_line(fd);
+	parse_cmd(line, a, b);
 	while (line)
 	{
 		parse_cmd(line, a, b);
 		line = get_next_line(fd);
-	}
-}
-static void	print_stack(t_stack_node *a)
-{
-	while (a)
-	{
-		printf("%d\n", a->value);
-		a = a->next;
 	}
 }
 
@@ -97,13 +90,11 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	stack_init(&a, argv + 1, argc == 2);
 	len = stack_len(a);
-	gnl_loop(STDIN_FILENO, a, b);
-	printf("%d == %d\n", stack_len(a), len);
+	gnl_loop(STDIN_FILENO, &a, &b);
 	if (stack_sorted(a) && len == stack_len(a))
 		write(STDOUT_FILENO, "OK\n", 3);
 	else
 		write(STDOUT_FILENO, "KO\n", 3);
-	print_stack(a);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
