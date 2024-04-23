@@ -6,7 +6,7 @@
 /*   By: bchedru <bchedru@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:08:16 by bchedru           #+#    #+#             */
-/*   Updated: 2024/04/09 16:02:00 by bchedru          ###   ########.fr       */
+/*   Updated: 2024/04/23 18:14:11 by bchedru          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	push_average(t_stack_node **a, t_stack_node **b)
 
 	average = stack_average(*a);
 	len_a = 0;
-	while (check_stack_underaverage(*a, average))
+	while (check_stack_underaverage(*a, average) && stack_len(*a) > 3)
 	{
 		if ((*a)->value > average)
 			pb(b, a, false);
